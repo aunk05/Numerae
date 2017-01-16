@@ -14,7 +14,7 @@ import java.util.Map;
  * what might that be ...
  *
  * Well, today I learned that a foreach preserves order, which is something of which I had not
- * previously been sure.
+ * previously been sure (I'm not saying that's the insight).
  *
  * This solution does not test that the input is valid, but you didn't ask for that, right? OTOH you DID
  * ask that it should actually print out the result and it doesn't do that either, but that's just manual
@@ -23,8 +23,8 @@ import java.util.Map;
  * By default, the values of each Roman 'digit' are summed left to right according to the values in the map.
  * However, when a character is encountered which maps to an int value higher than the previous, this is interpreted
  * as a 'mistake' having been made - the previous was really a subtrahend to the current and not an addend to the
- * total. Hence, after the current value has been added, the previous must be subtracted twice - once to correct the
- * mistake, and again to decrease the current value.
+ * total (this MIGHT be the insight). Hence, after the current value has been added, the previous must be subtracted
+ * twice - once to correct the mistake, and again to decrease the current value.
  *
  */
 class Arabizer {
@@ -46,10 +46,12 @@ class Arabizer {
         char[] r = roman.toCharArray();
         for (char c : r) {
             next = values.get(c);
-            if (next > temp) {
+            if (next <= temp)       //default presumed case of values decreasing L -> R.
+                result += next;
+            else {                  //when that doesn't happen, subtract the previous one twice.
                 result += next;
                 result -= 2 * temp;
-            } else result += next;
+            }
             temp = next;
         }
         return result;
