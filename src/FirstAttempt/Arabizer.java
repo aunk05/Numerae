@@ -41,8 +41,8 @@ class Arabizer {
         values.put('V', 5);
         values.put('I', 1);
 
-        int result = 0;
-        int temp = 0, next;
+        int result, temp, next;
+        result=temp=0;
         char[] r = roman.toCharArray();
         for (char c : r) {
             next = values.get(c);
