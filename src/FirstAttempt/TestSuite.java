@@ -4,12 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by aunk05 on 15/01/17.
- */
+
 public class TestSuite {
 
-    Arabizer arabizer = new Arabizer();
+    private Arabizer arabizer = new Arabizer();
 
     @Test
     public void testOneMString() {

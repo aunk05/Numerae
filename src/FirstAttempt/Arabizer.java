@@ -27,11 +27,11 @@ import java.util.Map;
  * mistake, and again to decrease the current value.
  *
  */
-public class Arabizer {
+class Arabizer {
 
     int convert(String roman) {
 
-        Map<Character, Integer> values = new HashMap();
+        Map<Character, Integer> values = new HashMap<>();
 
         values.put('M', 1000);
         values.put('D', 500);
