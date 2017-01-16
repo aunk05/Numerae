@@ -46,12 +46,9 @@ class Arabizer {
         char[] r = roman.toCharArray();
         for (char c : r) {
             next = values.get(c);
-            if (next <= temp)       //default presumed case of values decreasing L -> R.
-                result += next;
-            else {                  //when that doesn't happen, subtract the previous one twice.
-                result += next;
-                result -= 2 * temp;
-            }
+            result += next; //default presumed case of values decreasing L -> R.
+            if (next > temp)
+                result -= 2 * temp; //when that doesn't happen, subtract the previous one twice.
             temp = next;
         }
         return result;
